@@ -223,7 +223,7 @@ export function GitHubAppShellProvider(props: {
       awareness,
       url:
         process.env.NODE_ENV === 'production'
-          ? `wss://api.keystatic.cloud/${repoInfo}`
+          ? `wss://live.keystatic.cloud/${repoInfo}`
           : `ws://localhost:8787/${repoInfo}`,
       authToken: async () => getAuth().then(auth => auth?.accessToken ?? ''),
     });
