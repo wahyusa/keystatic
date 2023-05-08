@@ -58,7 +58,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
       />
 
       <div
-        className={`fixed top-0 z-30 lg:z-20 w-56 h-screen lg:pt-24 lg:pl-6 transition-[left] ${
+        className={`fixed top-0 z-30 lg:z-20 w-60 h-screen lg:pt-24 lg:pl-6 transition-[left] ${
           !navOpen ? '-left-full lg:left-auto' : 'left-0'
         }`}
       >

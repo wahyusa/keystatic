@@ -73,7 +73,7 @@ export default function RootLayout({
             </NavContainer>
 
             {/** CONTENT */}
-            <div className="px-6 flex-1 lg:pl-56 lg:pt-24 ">
+            <div className="px-6 flex-1 lg:pl-60 lg:pt-24 ">
               <div className="py-10 lg:pl-12">
                 {/** INNER CONTENT (markdoc goes here) */}
                 <div className="flex gap-8">
