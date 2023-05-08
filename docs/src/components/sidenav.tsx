@@ -58,11 +58,11 @@ export function NavContainer({ children }: { children: ReactNode }) {
       />
 
       <div
-        className={`fixed top-0 z-30 lg:z-20 w-56 h-screen lg:top-24 lg:pl-6 transition-[left] ${
+        className={`fixed top-0 z-30 lg:z-20 w-56 h-screen lg:pt-24 lg:pl-6 transition-[left] ${
           !navOpen ? '-left-full lg:left-auto' : 'left-0'
         }`}
       >
-        <nav className="h-full pt-2 pb-10 pr-6 pl-4 lg:-ml-4 lg:border-r border-stone-400/20 overflow-y-auto bg-white">
+        <nav className="h-full py-10 pr-6 pl-4 lg:-ml-4 lg:border-r border-stone-400/20 overflow-y-auto bg-white">
           {children}
         </nav>
       </div>
@@ -80,8 +80,11 @@ export function NavList({
   const id = useId();
 
   return (
-    <div className="lg:-ml-4 pt-8">
-      <h3 id={id} className="text-sm font-semibold mb-2 px-4">
+    <div className="lg:-ml-4 pb-6">
+      <h3
+        id={id}
+        className="text-xs uppercase font-normal text-stone-500 mb-2 px-4"
+      >
         {title}
       </h3>
       <ul aria-labelledby={id}>{children}</ul>
@@ -92,7 +95,7 @@ export function NavList({
 const navItemStyleShared = 'rounded-md px-4 py-2 block text-sm';
 
 const navItemStyleIdle =
-  'hover:bg-keystatic-gray-light font-normal text-stone-600';
+  'hover:bg-keystatic-gray-light font-medium text-stone-600';
 
 const navItemStyleCurrent =
   'bg-keystatic-gray text-stone-700 font-semibold before:block before:absolute before:inset-y-2 before:inset-x-0 before:bg-keystatic-gray-dark before:w-1 before:rounded-r';
