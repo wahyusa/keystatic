@@ -10,7 +10,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
     <>
       <button
         onClick={() => setNavOpen(true)}
-        className="bg-keystatic-gray-light hover:bg-keystatic-gray sticky top-0 left-0 w-full px-6 py-2 border-b flex items-center border-stone-400/20 z-20 lg:hidden"
+        className="bg-white hover:bg-keystatic-gray-light sticky top-0 left-0 w-full px-6 py-3 border-b flex items-center border-stone-400/20 z-20 lg:hidden"
       >
         <div className="flex items-center gap-2 text-sm">
           <svg
@@ -27,7 +27,8 @@ export function NavContainer({ children }: { children: ReactNode }) {
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
           </svg>
-          <span className="flex items-center gap-1">
+          <span className="font-semibold">Docs Menu</span>
+          {/* <span className="flex items-center gap-1">
             <span className="">Getting started</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +45,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
               />
             </svg>
             <span className="font-semibold">Introduction</span>
-          </span>
+          </span> */}
         </div>
       </button>
 
@@ -57,7 +58,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
         }`}
       />
 
-      <div
+      <aside
         className={`fixed top-0 z-30 lg:z-20 w-60 h-screen lg:pt-24 lg:pl-6 transition-[left] ${
           !navOpen ? '-left-full lg:left-auto' : 'left-0'
         }`}
@@ -65,7 +66,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
         <nav className="h-full py-10 pr-6 pl-4 lg:-ml-4 lg:border-r border-stone-400/20 overflow-y-auto bg-white">
           {children}
         </nav>
-      </div>
+      </aside>
     </>
   );
 }
@@ -92,33 +93,30 @@ export function NavList({
   );
 }
 
-const navItemStyleShared = 'rounded-md px-4 py-2 block text-sm';
-
-const navItemStyleIdle =
-  'hover:bg-keystatic-gray-light font-medium text-stone-600';
-
-const navItemStyleCurrent =
-  'bg-keystatic-gray text-stone-700 font-semibold before:block before:absolute before:inset-y-2 before:inset-x-0 before:bg-keystatic-gray-dark before:w-1 before:rounded-r';
-
-export function NavItem({
-  label,
-  href,
-  current,
-  title,
-}: {
+type NavItemProps = {
   label: string;
   href: string;
+  level: 'top' | 'sub';
   current?: boolean;
   title?: string;
-}) {
+};
+
+export function NavItem({ label, href, level, current, title }: NavItemProps) {
   // TODO next/link
+  const styleShared =
+    level === 'top'
+      ? 'rounded-md px-4 py-2 block text-md'
+      : 'rounded-md px-4 py-2 block text-sm';
+  const styleIdle = 'hover:bg-keystatic-gray-light font-medium text-stone-600';
+  const styleCurrent =
+    level === 'top'
+      ? 'bg-keystatic-gray text-stone-700 font-semibold'
+      : 'bg-keystatic-gray text-stone-700 font-semibold before:block before:absolute before:inset-y-2 before:inset-x-0 before:bg-keystatic-gray-dark before:w-1 before:rounded-r';
+
   return (
     <li className="relative" aria-current={current ? 'page' : false}>
       <a
-        className={cx(
-          navItemStyleShared,
-          current ? navItemStyleCurrent : navItemStyleIdle
-        )}
+        className={cx(styleShared, current ? styleCurrent : styleIdle)}
         href={href}
         title={title}
       >

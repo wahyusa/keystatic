@@ -8,7 +8,7 @@ import { createReader } from '@keystatic/core/reader';
 const reader = createReader('', keystaticConfig);
 
 export const metadata = {
-  title: 'Keystatic - docs',
+  title: 'Keystatic - Docs',
   description: 'Documentation for Keystatic',
 };
 
@@ -57,6 +57,7 @@ export default async function RootLayout({
                       label={label}
                       href={href}
                       title={title}
+                      level="sub"
                     />
                   ))}
                 </NavList>

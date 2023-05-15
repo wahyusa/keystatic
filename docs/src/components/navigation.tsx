@@ -1,14 +1,8 @@
 import Link from 'next/link';
 
-import Button from './button';
-
-type NavigationProps = {
-  showCta?: boolean;
-};
-
-export default function Index({ showCta = true }: NavigationProps) {
+export default function Index() {
   return (
-    <header className="bg-keystatic-gray-light w-full">
+    <header className="bg-white w-full">
       <div className="mx-auto max-w-7xl">
         <nav className="lg:h-24 py-6 px-6 flex flex-row items-center justify-between gap-6">
           <Link href="/">
@@ -35,10 +29,10 @@ export default function Index({ showCta = true }: NavigationProps) {
 
           {/** COMMUNITY LINKS */}
           <div className="flex flex-row items-center gap-4 justify-between">
-            <div className={`${showCta ? 'hidden sm:flex' : 'flex'} gap-2`}>
+            <div className="flex gap-2">
               <Link
                 href="https://fosstodon.org/@keystatic"
-                className="shrink-0 rounded-lg bg-keystatic-gray p-3 hover:bg-stone-300"
+                className="shrink-0 rounded-lg bg-white p-3 hover:bg-keystatic-gray-light"
               >
                 <span className="sr-only">Keystatic on Mastodon</span>
                 <svg
@@ -65,7 +59,7 @@ export default function Index({ showCta = true }: NavigationProps) {
 
               <Link
                 href="https://github.com/thinkmill/keystatic"
-                className="shrink-0 rounded-lg bg-keystatic-gray p-3 hover:bg-stone-300"
+                className="shrink-0 rounded-lg bg-white p-3 hover:bg-keystatic-gray-light"
               >
                 <span className="sr-only">Keystatic on GitHub</span>
                 <svg
@@ -83,7 +77,7 @@ export default function Index({ showCta = true }: NavigationProps) {
 
               <Link
                 href="https://twitter.com/thekeystatic"
-                className="shrink-0 rounded-lg bg-keystatic-gray p-3 hover:bg-stone-300"
+                className="shrink-0 rounded-lg bg-white p-3 hover:bg-keystatic-gray-light"
               >
                 <span className="sr-only">Keystatic on Twitter</span>
                 <svg
@@ -106,37 +100,7 @@ export default function Index({ showCta = true }: NavigationProps) {
                 </svg>
               </Link>
             </div>
-
-            {showCta && (
-              <Button href="/docs" className="flex items-center justify-center">
-                <span>Docs</span>
-              </Button>
-            )}
           </div>
-
-          {/* <Button
-            href="/docs"
-            impact="light"
-            className="px-3 pt-2 pb-2 lg:hidden"
-          >
-            <div className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-              Menu
-            </div>
-          </Button> */}
         </nav>
       </div>
     </header>

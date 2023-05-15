@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Button from './button';
 
 const features = [
   'First-class CMS experience',
@@ -29,14 +30,16 @@ export default function Hero() {
               <span className="relative">Codebase</span>
             </span>
           </h1>
+
           <p className="mx-auto mt-8 max-w-2xl text-xl text-stone-600 md:text-2xl lg:mx-0">
             A new tool that makes Markdown, JSON and YAML content in your
             codebase editable by humans.
           </p>
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-stone-600 md:text-2xl lg:mx-0">
-            Live edit content on GitHub or your local file system, without
-            disrupting your existing code and workflows.
-          </p>
+
+          <div className="mt-12 mx-auto max-w-xs">
+            <Button href="/docs">Read the docs</Button>
+          </div>
+
           <div className="mt-12 inline-flex items-center gap-3 rounded-2xl bg-keystatic-gray px-5 py-4">
             <svg
               className="h-6 w-6 shrink-0"
@@ -68,7 +71,13 @@ export default function Hero() {
               project
             </span>
           </div>
+
+          <p className="mx-auto mt-6 max-w-2xl text-sm text-stone-600 lg:mx-0">
+            Live edit content on GitHub or your local file system, without
+            disrupting your existing code and workflows.
+          </p>
         </div>
+
         <ul className="mx-auto max-w-xl space-y-6 rounded-2xl bg-white p-8 text-xl leading-none lg:col-span-6 lg:col-start-8 lg:max-w-none">
           {features.map(feature => (
             <li key={feature} className="flex items-center gap-4">
